@@ -13,3 +13,11 @@ fn invalid_array_size() {
 
     assert_eq!(true, FaceEncoding::from_vec(&original_array).is_err());
 }
+
+#[test]
+fn encoding() {
+    let original_array: Vec<f64> = vec![2.5; 128];
+    let face_enc = FaceEncoding::from_vec(&original_array).unwrap(); 
+
+    assert_eq!(&original_array, face_enc.as_ref()); 
+}
